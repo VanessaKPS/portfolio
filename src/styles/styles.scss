@@ -1,16 +1,86 @@
 @import './config';
-
-#header-wrapper {
-    height: 100vh;
-
-    width: 100%;
-    background: #fff;
-    position: fixed;
+@import './utilities';
+#app {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    position: absolute;
+
+    overflow: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#home-wrapper {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+}
+
+#nav-bar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 5%;
+    z-index: 100;
+    min-height: 10vh;
+    width: 90%;
+    pointer-events: none;
+    @include flexContainer(row);
+    justify-content: space-between;
+
+    .nav-links-wrapper {
+        width: 20%;
+        @include flexContainer(row);
+        justify-content: space-around;
+    }
+
+    .logo-link-wrapper {
+        color: $black;
+        transition: transform 0.3s;
+        pointer-events: all;
+    }
+
+    .logo {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background-color: $white;
+        font-size: $description-font-size;
+        font-weight: map-get($font-weights, bold);
+        -webkit-text-stroke: 1px $white;
+        @include flexContainer(row);
+    }
+
+    .nav-link {
+        @extend .logo-link-wrapper;
+        -webkit-text-stroke: 0.2px $white;
+        padding: 0.5rem;
+        font-weight: map-get($font-weights, medium);
+    }
+    .hover-logo-wrapper-style {
+        transform: scale(1.3);
+    }
+    .hover-link-style {
+        @extend .hover-logo-wrapper-style;
+        font-weight: map-get($font-weights, bold);
+        -webkit-text-stroke: 0.5px $white;
+        padding: 0.5rem;
+        background-color: $white;
+        border-radius: 4px;
+        pointer-events: initial;
+    }
+}
+
+#header {
+    height: 100vh;
+    width: 100%;
+    background: $white;
+    position: relative;
+    @include flexContainer(column);
     align-items: flex-start;
-    align-content: center;
+    transition: display 0.2s;
 
     .header-bg {
         z-index: 99;
@@ -18,35 +88,200 @@
         pointer-events: none;
         position: absolute;
         background: no-repeat fixed;
+        object-fit: cover;
         background-size: cover;
         // transition: transform 0.4s ease;
         // transition: width 0.6s ease, height 0.6s ease, top 0.6s ease,
         //     left 0.6s ease;
         transition: all 0.3s ease;
     }
-
+    .profile-wrapper,
+    .cta {
+        margin-left: 5%;
+        z-index: 100;
+    }
     .header-title {
         position: relative;
-        margin-left: 5rem;
         z-index: 100;
-        font-size: 200px;
-        font-weight: 700;
-        -webkit-text-stroke: 5px #fff;
+        font-size: $header-font-size;
+        font-weight: map-get($font-weights, bold);
+        -webkit-text-stroke: 5px $white;
+        line-height: $line-height;
     }
 
     .header-text {
         z-index: 100;
-        margin: 0.5rem 0 0 5rem;
-        font-size: 80px;
-        font-weight: 500;
-        -webkit-text-stroke: 2px #fff;
+        font-size: $title-font-size;
+        font-weight: map-get($font-weights, medium);
+        -webkit-text-stroke: 2px $white;
     }
     .cta .header-text {
         position: relative;
+        margin-top: 2rem;
+        padding: 0 0.5rem;
+        border: 0.5px solid;
+        border-radius: 4px;
+        border-color: rgba(0, 0, 0, 0.03);
+        font-size: 56px;
         z-index: 100;
-        font-weight: 600;
-        background: linear-gradient(136deg, #1bb146, #f7c001, #ee0a1b);
-        background-clip: text;
-        color: transparent;
+        font-weight: map-get($font-weights, semi-bold);
+        @include gradientText;
+        transition: transform 0.3s;
     }
+    .hover-header-text {
+        position: relative;
+        margin-top: 2rem;
+        padding: 0 0.5rem;
+        border: 0.5px solid;
+        border-radius: 4px;
+        font-size: 56px;
+        z-index: 100;
+        font-weight: map-get($font-weights, semi-bold);
+        @include gradientText;
+        transition: transform 0.3s;
+        -webkit-text-stroke: 2px $white;
+        border-color: rgba(250, 250, 250, 1);
+        transform: scale(1.1);
+    }
+}
+
+#projects {
+    min-height: 100vh;
+    width: 100%;
+    z-index: 99;
+    position: relative;
+    @include flexContainer(row);
+    flex-wrap: wrap;
+}
+.projects-container {
+    @include flexContainer(row);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 90vh;
+}
+
+.project-wrapper {
+    position: relative;
+    border: 1px solid $black;
+    background-clip: padding-box;
+    background-color: $white;
+    border-radius: 6px;
+    @include flexContainer(column);
+    justify-content: space-between;
+    width: 23%;
+    height: 60%;
+    text-align: center;
+    padding: 1rem;
+    color: $black;
+    transition: border 0.3s ease;
+    .project-img {
+        width: 30%;
+        height: 25%;
+        object-fit: cover;
+    }
+    .project-cta {
+        border-radius: 4px;
+        width: 5.5rem;
+        padding: 0.2rem;
+        border: 0.3px solid;
+        border-color: rgba(0, 0, 0, 0.03);
+    }
+    &:hover {
+        border: 3px solid transparent;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            margin: -3px;
+            border-radius: inherit;
+            background: $gradient;
+        }
+    }
+}
+
+.modal-wrapper {
+    display: grid;
+    width: 80%;
+    height: 80%;
+    background: $white;
+    border-radius: 8px;
+}
+#profile-wrapper {
+    min-height: 100vh;
+}
+#about {
+    height: 80vh;
+    width: 100%;
+    z-index: 99;
+    position: relative;
+    @include flexContainer(column);
+
+    .about-content-wrapper {
+        width: 40%;
+        height: 50%;
+        position: relative;
+        z-index: 99;
+        @include flexContainer(column);
+        justify-content: space-around;
+    }
+
+    .social-icons-wrapper {
+        width: 20%;
+        height: 5%;
+        @include flexContainer(row);
+        justify-content: space-around;
+    }
+
+    .cloud-wrapper {
+        width: 100%;
+        height: 80vh;
+        position: absolute;
+        .enter-left,
+        .enter-right {
+            width: 100%;
+            height: 80vh;
+            position: absolute;
+            z-index: 98;
+            .cloud-2-large {
+                width: 18rem;
+                position: absolute;
+                animation: enter 3s ease forwards;
+                animation-delay: 3s;
+                opacity: 0;
+            }
+        }
+        .cloud-1 {
+            width: 10rem;
+            // position: absolute;
+        }
+        .cloud-2-small {
+            width: 14rem;
+            // position: absolute;
+        }
+
+        @keyframes enter {
+            0% {
+                left: 0;
+                top: 5%;
+            }
+
+            100% {
+                opacity: 1;
+                top: 5%;
+                left: 75%;
+            }
+        }
+    }
+}
+#contact {
+    height: 20vh;
+    width: 100%;
+    z-index: 99;
+    position: relative;
+    background-color: $dark-orange;
 }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Background from '../assets/Background.jpg'
 
-const HeaderBackground = () => {
+const HeaderBackground = (props) => {
+    const { status } = props
     const [position, setPosition] = useState({ x: 0, y: 0 })
+
     const [size, setSize] = useState(15)
 
     const onMouseMove = (e) => {
@@ -21,7 +23,7 @@ const HeaderBackground = () => {
     }, [])
 
     const customStyle = {
-        top: `${position.y - size * 8}px`,
+        top: `${position.y + window.scrollY - size * 8}px`,
         left: `${position.x - size * 8}px`,
 
         backgroundImage: `url(${Background})`,
@@ -29,7 +31,12 @@ const HeaderBackground = () => {
         height: `${size}rem`,
     }
 
-    return <div className='header-bg' style={customStyle}></div>
+    return (
+        <div
+            className={status ? 'header-bg' : 'hide'}
+            style={customStyle}
+        ></div>
+    )
 }
 
 export default HeaderBackground

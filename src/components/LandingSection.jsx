@@ -1,19 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import HeaderBackground from './HeaderBackground'
-// import Cursor from './Cursor'
 
-const LandingSection = () => {
+const LandingSection = (props) => {
+    const { status } = props
+    const [isHovered, setIsHovered] = useState(false)
+
+    const handleHover = () => {
+        document.getElementById('cta').addEventListener('mouseover', () => {
+            setIsHovered((prevValue) => !prevValue)
+        })
+        document.getElementById('cta').addEventListener('mouseout', () => {
+            setIsHovered((prevValue) => !prevValue)
+        })
+    }
+
+    useEffect(() => {
+        handleHover()
+    }, [])
+
     return (
-        <header id='header-wrapper'>
-            <h1 className='header-title'>VANESSA KPS</h1>
-            {/* <h1 className='header-title'>KPS</h1> */}
-            {/* <Cursor /> */}
-            <HeaderBackground />
+        <header id='header'>
+            <HeaderBackground status={status} />
+            <div className='profile-wrapper'>
+                <h1 className='header-title'>VANESSA KPS</h1>
 
-            <p className='header-text'>web developer</p>
-            <div className='cta'>
-                <p className='header-text'>projects</p>
+                <p className='header-text'>web developer</p>
             </div>
+            <a href='#projects' id='cta' className='cta'>
+                <p className={isHovered ? 'hover-header-text' : 'header-text'}>
+                    projects
+                </p>
+            </a>
         </header>
     )
 }

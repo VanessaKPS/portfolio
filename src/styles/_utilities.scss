@@ -1,0 +1,17 @@
+.cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 101;
+    transform: translateX(-50%) translateY(-50%);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: $black;
+    // background-image: linear-gradient(135deg, #fc4a02, #fffd03, #1bb146);
+    border: $white 2px solid;
+}
+
+.social-icons {
+    width: 30px;
+    height: 30px;
+}
