@@ -1,0 +1,66 @@
+#projects {
+    min-height: 100vh;
+    width: 100%;
+    z-index: 99;
+    position: relative;
+    @include flexContainer(row);
+    flex-wrap: wrap;
+}
+.projects-container {
+    @include flexContainer(row);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 90vh;
+}
+
+.project-wrapper {
+    position: relative;
+    border: 1px solid $black;
+    background-clip: padding-box;
+    background-color: $white;
+    border-radius: 6px;
+    @include flexContainer(column);
+    justify-content: space-between;
+    width: 23%;
+    height: 60%;
+    text-align: center;
+    padding: 1rem;
+    color: $black;
+    transition: border 0.3s ease;
+    .project-img {
+        width: 30%;
+        height: 25%;
+        object-fit: cover;
+    }
+    .project-cta {
+        border-radius: 4px;
+        width: 5.5rem;
+        padding: 0.2rem;
+        border: 0.3px solid;
+        border-color: rgba(0, 0, 0, 0.03);
+    }
+    &:hover {
+        border: 3px solid transparent;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            margin: -3px;
+            border-radius: inherit;
+            background: $gradient;
+        }
+    }
+}
+
+.modal-wrapper {
+    display: grid;
+    width: 80%;
+    height: 80%;
+    background: $white;
+    border-radius: 8px;
+}

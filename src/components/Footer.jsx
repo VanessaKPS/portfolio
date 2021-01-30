@@ -4,9 +4,11 @@ const Footer = (props) => {
     const { email, github, linkedin } = props
     return (
         <section id='contact'>
-            <img className='social-icons' src={email} alt='icon' />
-            <img className='social-icons' src={github} alt='icon' />
-            <img className='social-icons' src={linkedin} alt='icon' />
+            <div className='contact-wrapper'>
+                <img className='social-icons' src={email} alt='icon' />
+                <img className='social-icons' src={github} alt='icon' />
+                <img className='social-icons' src={linkedin} alt='icon' />
+            </div>
         </section>
     )
 }

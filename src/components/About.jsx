@@ -1,17 +1,40 @@
-import React from 'react'
-import Cloud1 from '../assets/Cloud1.svg'
+import React, { useState, useEffect } from 'react'
 import Cloud1r from '../assets/Cloud1r.svg'
 import Cloud2s from '../assets/Cloud2s.svg'
-import Cloud2sr from '../assets/Cloud2sr.svg'
-
-import Cloud2ll from '../assets/Cloud2ll.svg'
 
 const About = (props) => {
-    const { github, linkedin } = props
+    const [animationClass, setAnimationClass] = useState({
+        title: 'about-title',
+        clouds: 'cloud-wrapper',
+    })
+    useEffect(() => {
+        const target = document.getElementById('about')
+        const options = { threshold: 1 }
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setAnimationClass({
+                        title: 'animate-about-title',
+                        clouds: 'animate-cloud-wrapper',
+                    })
+                } else {
+                }
+            })
+        }, options)
+        observer.observe(target)
+    }, [])
     return (
         <section id='about'>
             <div className='about-content-wrapper'>
-                <h1 className='about-title'>About</h1>
+                <h1 className={animationClass.title}>
+                    <span>A</span>
+                    <span>b</span>
+                    <span>o</span>
+                    <span>u</span>
+                    <span>t</span> <span>m</span>
+                    <span>e</span>
+                </h1>
                 <p className='about-text'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. A
                     impedit sed repudiandae libero consequuntur laborum vel vero
@@ -21,28 +44,48 @@ const About = (props) => {
                     Aperiam at culpa dolores ipsam saepe voluptatem laboriosam
                     natus ratione! Ipsam, ad.
                 </p>
-                <div className='social-icons-wrapper'>
-                    <img className='social-icons' src={github} alt='icon' />
-                    <img className='social-icons' src={linkedin} alt='icon' />
-                </div>
             </div>
-            <div className='cloud-wrapper'>
-                <div className='enter-left'>
+            <div className={animationClass.clouds}>
+                <div className='group1'>
                     <img
-                        src={Cloud2ll}
+                        src={Cloud1r}
                         alt='cloud'
-                        className='cloud-2-large '
+                        className='cloud-1r cloud1'
                     />
-                    {/* <img src={Cloud2ll} alt='cloud' className='cloud-2-large' />
-                    <img src={Cloud2s} alt='cloud' className='cloud-2-small' /> */}
-                </div>
-                {/* <div className='enter-right'>
-                    <img src={Cloud1} alt='cloud' className='cloud-1' />
-                    <img src={Cloud1} alt='cloud' className='cloud-1' />
-                    <img src={Cloud1r} alt='cloud' className='cloud-1' />
+                    <img
+                        src={Cloud2s}
+                        alt='cloud'
+                        className='cloud-2s cloud2'
+                    />
 
-                    <img src={Cloud2sr} alt='cloud' className='cloud-2-small' />
-                </div> */}
+                    <img
+                        src={Cloud1r}
+                        alt='cloud'
+                        className='cloud-1r cloud3'
+                    />
+                    <img
+                        src={Cloud1r}
+                        alt='cloud'
+                        className='cloud-1r cloud4'
+                    />
+                </div>
+                <div className='group2'>
+                    <img
+                        src={Cloud2s}
+                        alt='cloud'
+                        className='cloud-2s cloud5'
+                    />
+                    <img
+                        src={Cloud2s}
+                        alt='cloud'
+                        className='cloud-2s cloud6'
+                    />
+                    <img
+                        src={Cloud1r}
+                        alt='cloud'
+                        className='cloud-1r cloud7'
+                    />
+                </div>
             </div>
         </section>
     )

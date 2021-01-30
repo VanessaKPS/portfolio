@@ -1,74 +1,54 @@
 import React, { useState, useEffect } from 'react'
 
 const NavBar = () => {
-    const [isHovered, setIsHovered] = useState({
-        logo: false,
-        projects: false,
-        about: false,
-        contact: false,
+    const [hoverStyles, setHoverStyles] = useState({
+        logo: '',
+        navProjectsLink: '',
+        navAboutLink: '',
     })
 
     const handleHover = () => {
         document.getElementById('logo').addEventListener('mouseover', () => {
-            setIsHovered((prevValue) => ({
+            setHoverStyles((prevValue) => ({
                 ...prevValue,
-                logo: !prevValue.logo,
+                logo: 'hover-logo-wrapper-style',
             }))
         })
         document.getElementById('logo').addEventListener('mouseout', () => {
-            setIsHovered((prevValue) => ({
-                ...prevValue,
-                logo: !prevValue.logo,
-            }))
+            setHoverStyles((prevValue) => ({ ...prevValue, logo: '' }))
         })
         document
             .getElementById('projects-nav')
             .addEventListener('mouseover', () => {
-                setIsHovered((prevValue) => ({
+                setHoverStyles((prevValue) => ({
                     ...prevValue,
-                    projects: !prevValue.projects,
+                    navProjectsLink: 'hover-link-style',
                 }))
             })
         document
             .getElementById('projects-nav')
             .addEventListener('mouseout', () => {
-                setIsHovered((prevValue) => ({
+                setHoverStyles((prevValue) => ({
                     ...prevValue,
-                    projects: !prevValue.projects,
+                    navProjectsLink: '',
                 }))
             })
         document
             .getElementById('about-nav')
             .addEventListener('mouseover', () => {
-                setIsHovered((prevValue) => ({
+                setHoverStyles((prevValue) => ({
                     ...prevValue,
-                    about: !prevValue.about,
+                    navAboutLink: 'hover-link-style',
                 }))
             })
         document
             .getElementById('about-nav')
             .addEventListener('mouseout', () => {
-                setIsHovered((prevValue) => ({
+                setHoverStyles((prevValue) => ({
                     ...prevValue,
-                    about: !prevValue.about,
+                    navAboutLink: '',
                 }))
             })
-        // document
-        //     .getElementById('contact-nav')
-        //     .addEventListener('mouseover', () => {
-        //         setIsHovered((prevValue) => ({
-        //             ...prevValue,
-        //             contact: !prevValue.contact,
-        //         }))
-        //     })
-        // document
-        //     .getElementById('contact-nav')
-        //     .addEventListener('mouseout', () => {
-        //         setIsHovered((prevValue) => ({
-        //             ...prevValue,
-        //             contact: !prevValue.contact,
-        //         }))
-        //     })
     }
 
     useEffect(() => {
@@ -80,11 +60,7 @@ const NavBar = () => {
             <a
                 href='/'
                 id='logo'
-                className={
-                    isHovered.logo
-                        ? 'hover-logo-wrapper-style'
-                        : 'logo-link-wrapper'
-                }
+                className={`logo-link-wrapper ${hoverStyles.logo}`}
             >
                 <div className='logo'>V</div>
             </a>
@@ -93,30 +69,17 @@ const NavBar = () => {
                 <a
                     href='#projects'
                     id='projects-nav'
-                    className={
-                        isHovered.projects ? 'hover-link-style' : 'nav-link'
-                    }
+                    className={`nav-link ${hoverStyles.navProjectsLink}`}
                 >
                     projects
                 </a>
                 <a
                     href='#about'
                     id='about-nav'
-                    className={
-                        isHovered.about ? 'hover-link-style' : 'nav-link'
-                    }
+                    className={`nav-link ${hoverStyles.navAboutLink}`}
                 >
                     about
                 </a>
-                {/* <a
-                    href='#contact'
-                    id='contact-nav'
-                    className={
-                        isHovered.contact ? 'hover-link-style' : 'nav-link'
-                    }
-                >
-                    contact
-                </a> */}
             </div>
         </nav>
     )

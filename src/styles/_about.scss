@@ -1,0 +1,156 @@
+#about {
+    height: 85vh;
+    width: 100%;
+    z-index: 99;
+    position: relative;
+    @include flexContainer(column);
+
+    .about-content-wrapper {
+        width: 40%;
+        height: 60%;
+        position: relative;
+        z-index: 99;
+        @include flexContainer(column);
+        justify-content: space-around;
+
+        .about-title {
+            opacity: 0;
+        }
+
+        .animate-about-title {
+            font-size: $title-font-size;
+
+            span {
+                @include gradientText;
+                -webkit-text-stroke: 2px $white;
+                display: inline-block;
+
+                opacity: 0;
+                transform: translate(-64px, -64px) rotate(-180deg) scale(3);
+                animation: revolveScale 0.7s forwards;
+
+                &:nth-of-type(2) {
+                    animation-delay: 0.05s;
+                }
+                &:nth-of-type(3) {
+                    animation-delay: 0.1s;
+                }
+                &:nth-of-type(4) {
+                    animation-delay: 0.15s;
+                }
+                &:nth-of-type(5) {
+                    animation-delay: 0.2s;
+                }
+                &:nth-of-type(6) {
+                    animation-delay: 0.25s;
+                }
+                &:nth-of-type(7) {
+                    animation-delay: 0.3s;
+                }
+                @keyframes revolveScale {
+                    60% {
+                        transform: translate(20px, 20px) rotate(30deg)
+                            scale(0.3);
+                    }
+
+                    100% {
+                        transform: translate(0) rotate(0) scale(1);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .about-text {
+            width: 80%;
+            height: 50%;
+        }
+    }
+
+    .social-icons-wrapper {
+        width: 30%;
+        height: 10%;
+        @include flexContainer(row);
+        justify-content: space-around;
+    }
+
+    .cloud-wrapper {
+        opacity: 0;
+    }
+    .animate-cloud-wrapper {
+        width: 100%;
+        height: 85vh;
+        position: absolute;
+
+        .cloud-2s {
+            width: 14rem;
+        }
+        .cloud-1r {
+            width: 10rem;
+        }
+        .group1 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 98;
+            top: 12vh;
+            left: 0;
+            animation: float 38s linear infinite;
+
+            .cloud1 {
+                position: absolute;
+                top: 12rem;
+                left: 18%;
+            }
+            .cloud2 {
+                position: absolute;
+                right: 5%;
+                top: 2rem;
+            }
+            .cloud3 {
+                position: absolute;
+                top: 20rem;
+                left: 55%;
+            }
+            .cloud4 {
+                position: absolute;
+                top: 25rem;
+                left: 3%;
+            }
+        }
+        .group2 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 98;
+            top: 12vh;
+            left: 0;
+            opacity: 0;
+            animation: float 30s linear infinite;
+            animation-delay: 21s;
+            .cloud5 {
+                position: absolute;
+                right: 12%;
+            }
+            .cloud6 {
+                position: absolute;
+                top: 5rem;
+                left: 0;
+            }
+            .cloud7 {
+                position: absolute;
+                top: 23rem;
+                right: 50%;
+            }
+        }
+        @keyframes float {
+            0% {
+                margin-left: -100%;
+            }
+            100% {
+                left: 100%;
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -19,6 +19,7 @@ const ProjectsSection = () => {
     const modal = projects.filter((project) => project.id === selectModalById)
     return (
         <section id='projects'>
+            <h1>Projects</h1>
             <div className='projects-container'>
                 {closeModal ? (
                     projects.map((project, index) => {

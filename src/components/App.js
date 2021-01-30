@@ -23,12 +23,11 @@ const App = () => {
         const element = document.getElementById('app')
         const snapElement = new ScrollSnap(element, {
             snapDestinationY: '100%',
-
             duration: 400,
             threshold: 0.1,
         })
 
-        snapElement.bind(console.log('snapped'))
+        snapElement.bind()
     }
 
     useEffect(() => {

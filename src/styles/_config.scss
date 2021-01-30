@@ -4,9 +4,7 @@
     padding: 0;
     margin: 0;
 }
-// html {
-//     scroll-behavior: smooth;
-// }
+
 body {
     font-family: 'Rajdhani', sans-serif;
     max-width: 100vw;
@@ -24,6 +22,12 @@ a {
 
 .hide {
     display: none;
+}
+
+.social-icons {
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 //variables
