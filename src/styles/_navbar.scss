@@ -36,6 +36,7 @@
 
     .nav-link {
         @extend .logo-link-wrapper;
+        font-size: $detail-font-size;
         -webkit-text-stroke: 0.2px $white;
         padding: 0.5rem;
         font-weight: map-get($font-weights, medium);

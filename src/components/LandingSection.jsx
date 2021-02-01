@@ -1,22 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import HeaderBackground from './HeaderBackground'
 
 const LandingSection = (props) => {
-    const { status } = props
-    const [isHovered, setIsHovered] = useState(false)
+    const { status, selectNav } = props
+    const [hoverStyle, setHoverStyle] = useState('')
+    const ctaRef = useRef(null)
 
     const handleHover = () => {
-        document.getElementById('cta').addEventListener('mouseover', () => {
-            setIsHovered((prevValue) => !prevValue)
+        ctaRef.current.addEventListener('mouseover', () => {
+            setHoverStyle('hover-header-text')
         })
-        document.getElementById('cta').addEventListener('mouseout', () => {
-            setIsHovered((prevValue) => !prevValue)
+        ctaRef.current.addEventListener('mouseout', () => {
+            setHoverStyle('')
         })
     }
 
     useEffect(() => {
         handleHover()
     }, [])
+
+    const handleClick = (e) => {
+        console.log('cliucked')
+        console.log(e.target)
+        selectNav(e.target.id)
+    }
 
     return (
         <header id='header'>
@@ -26,11 +33,14 @@ const LandingSection = (props) => {
 
                 <p className='header-text'>web developer</p>
             </div>
-            <a href='#projects' id='cta' className='cta'>
-                <p className={isHovered ? 'hover-header-text' : 'header-text'}>
-                    projects
-                </p>
-            </a>
+            <button
+                id='cta'
+                onClick={handleClick}
+                className={`cta ${hoverStyle}`}
+                ref={ctaRef}
+            >
+                <p>projects</p>
+            </button>
         </header>
     )
 }

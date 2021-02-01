@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ProjectCard = (props) => {
-    const { title, image, strapLine, id, selectProject } = props
+    const { title, image, strapLine, id, selectProject, selector } = props
 
     const handleClick = () => {
         console.log("i've been clicked")
@@ -9,7 +9,7 @@ const ProjectCard = (props) => {
     }
     return (
         <div
-            className='project-wrapper'
+            className={`project-wrapper ${selector}`}
             key={id}
             // style={{ backgroundImage: `url(${image})` }}
         >

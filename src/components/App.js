@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Cursor from './Cursor'
 import NavBar from './NavBar'
 import LandingSection from './LandingSection'
@@ -12,6 +12,10 @@ import ScrollSnap from 'scroll-snap'
 
 const App = () => {
     const [isMouseOver, setIsMouseOver] = useState(true)
+    const appRef = useRef()
+    const homeRef = useRef()
+    const projectsRef = useRef()
+    const aboutRef = useRef('about')
 
     const mouseLeave = (e) => {
         setIsMouseOver(false)
@@ -20,7 +24,7 @@ const App = () => {
         setIsMouseOver(true)
     }
     const bindScrollSnap = () => {
-        const element = document.getElementById('app')
+        const element = appRef.current
         const snapElement = new ScrollSnap(element, {
             snapDestinationY: '100%',
             duration: 400,
@@ -32,31 +36,36 @@ const App = () => {
 
     useEffect(() => {
         bindScrollSnap()
-        document
-            .getElementById('home-wrapper')
-            .addEventListener('mouseleave', mouseLeave)
-        document
-            .getElementById('home-wrapper')
-            .addEventListener('mouseenter', mouseEnter)
+        const homeWrapper = homeRef.current
+        homeWrapper.addEventListener('mouseleave', mouseLeave)
+
+        homeWrapper.addEventListener('mouseenter', mouseEnter)
 
         return () => {
-            document
-                .getElementById('home-wrapper')
-                .removeEventListener('mouseleave', mouseLeave)
-            document
-                .getElementById('home-wrapper')
-                .removeEventListener('mouseenter', mouseEnter)
+            homeWrapper.removeEventListener('mouseleave', mouseLeave)
+            homeWrapper.removeEventListener('mouseenter', mouseEnter)
         }
     }, [])
-    return (
-        <div id='app' className='app-wrapper'>
-            <div id='home-wrapper'>
-                <NavBar />
-                <LandingSection status={isMouseOver} />
-            </div>
 
-            <ProjectsSection />
-            <div id='profile-wrapper'>
+    const handleClick = (name) => {
+        console.log(name)
+        if (name === 'projects-nav' || name === 'cta') {
+            projectsRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+        if (name === 'about-nav') {
+            aboutRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+    return (
+        <div id='app' className='app-wrapper' ref={appRef}>
+            <div id='home-wrapper' ref={homeRef}>
+                <NavBar selectNav={handleClick} />
+                <LandingSection status={isMouseOver} selectNav={handleClick} />
+            </div>
+            <div ref={projectsRef} id='projects-wrapper'>
+                <ProjectsSection />
+            </div>
+            <div id='profile-wrapper' ref={aboutRef}>
                 <About github={Github} linkedin={LinkedIn} />
 
                 <Footer email={Email} github={Github} linkedin={LinkedIn} />

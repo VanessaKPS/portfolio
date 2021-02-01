@@ -24,7 +24,6 @@
                 @include gradientText;
                 -webkit-text-stroke: 2px $white;
                 display: inline-block;
-
                 opacity: 0;
                 transform: translate(-64px, -64px) rotate(-180deg) scale(3);
                 animation: revolveScale 0.7s forwards;

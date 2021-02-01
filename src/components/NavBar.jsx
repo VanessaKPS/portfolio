@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-const NavBar = () => {
+const NavBar = (props) => {
+    const { selectNav } = props
     const [hoverStyles, setHoverStyles] = useState({
         logo: '',
         navProjectsLink: '',
@@ -55,6 +56,10 @@ const NavBar = () => {
         handleHover()
     }, [])
 
+    const handleClick = (e) => {
+        selectNav(e.target.id)
+    }
+
     return (
         <nav id='nav-bar-wrapper'>
             <a
@@ -66,20 +71,20 @@ const NavBar = () => {
             </a>
 
             <div className='nav-links-wrapper'>
-                <a
-                    href='#projects'
+                <button
                     id='projects-nav'
                     className={`nav-link ${hoverStyles.navProjectsLink}`}
+                    onClick={handleClick}
                 >
                     projects
-                </a>
-                <a
-                    href='#about'
+                </button>
+                <button
                     id='about-nav'
                     className={`nav-link ${hoverStyles.navAboutLink}`}
+                    onClick={handleClick}
                 >
                     about
-                </a>
+                </button>
             </div>
         </nav>
     )

@@ -5,30 +5,33 @@ import ProjectModal from './ProjectModal'
 
 const ProjectsSection = () => {
     const [selectModalById, setSelectModalById] = useState('')
+    const [titleStyle, setTitleStyle] = useState('')
     const [closeModal, setCloseModal] = useState(true)
 
     const saveId = (id) => {
         setSelectModalById(id)
         setCloseModal((prevValue) => !prevValue)
+        setTitleStyle('conceal')
     }
 
     const requestCloseModal = () => {
         setCloseModal((prevValue) => !prevValue)
+        setTitleStyle('')
     }
 
     const modal = projects.filter((project) => project.id === selectModalById)
     return (
         <section id='projects'>
-            <h1>Projects</h1>
             <div className='projects-container'>
                 {closeModal ? (
                     projects.map((project, index) => {
                         return (
                             <ProjectCard
+                                selector={project.class}
                                 key={index + project.name}
                                 id={project.id}
                                 title={project.name}
-                                image={project.img}
+                                // image={project.img}
                                 description={project.description}
                                 tech={project.technology}
                                 styling={project.styling}
@@ -50,8 +53,12 @@ const ProjectsSection = () => {
                         deployed={modal[0].deployed}
                         selectCloseModal={requestCloseModal}
                         features={modal[0].features}
+                        libraries={modal[0].libraries}
                     />
                 )}
+            </div>
+            <div className={`projects-title-wrapper ${titleStyle}`}>
+                <h1 className='projects-title'>Projects</h1>
             </div>
         </section>
     )
