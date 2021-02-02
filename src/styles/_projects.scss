@@ -62,8 +62,20 @@
         text-align: center;
         padding: 1rem;
         color: $black;
-        transition: border 0.3s ease;
+        transition: border 0.3s ease, opacity 0.3s ease;
 
+        .background-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 98;
+            opacity: 0;
+            border-radius: 5px;
+        }
         .project-cta {
             border-radius: 4px;
             width: 5.5rem;
@@ -72,7 +84,10 @@
             border-color: rgba(0, 0, 0, 0.03);
         }
         &:hover {
-            border: 3px solid transparent;
+            border: 4px solid transparent;
+            .background-img {
+                opacity: 1;
+            }
             &:before {
                 content: '';
                 position: absolute;
@@ -81,7 +96,7 @@
                 bottom: 0;
                 left: 0;
                 z-index: -1;
-                margin: -3px;
+                margin: -4px;
                 border-radius: inherit;
                 background: $gradient;
             }
@@ -94,17 +109,32 @@
         width: 90%;
         margin: auto;
         top: 5%;
-
-        box-shadow: rgba(0, 0, 0, 0.03);
         height: 80vh;
         background: $white;
         border-radius: 8px;
         justify-content: space-around;
-        .giphy-wrapper {
+        .illustration-wrapper {
             width: 50%;
+            height: 100%;
             @include flexContainer(column);
+            justify-content: space-around;
             .close-modal-wrapper {
                 align-self: flex-start;
+            }
+            .modal-title {
+                @include gradientText;
+                -webkit-text-stroke: 2px $white;
+                font-size: $title-font-size;
+            }
+            .gif-wrapper {
+                width: 80%;
+                height: auto;
+                margin: 1rem auto;
+                .modal-gif {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
             }
             .modal-icons-container {
                 @include flexContainer(row);
@@ -118,11 +148,7 @@
             @include flexContainer(column);
             align-items: flex-start;
             justify-content: space-between;
-            .modal-title {
-                @include gradientText;
-                -webkit-text-stroke: 2px $white;
-                font-size: $title-font-size;
-            }
+
             .tech-style-wrapper {
                 display: flex;
                 width: 50%;

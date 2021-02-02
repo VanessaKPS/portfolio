@@ -1,5 +1,7 @@
-import DragNDropImg from './assets/dragndrop-todo.png'
-import AppleCloneImg from './assets/apple-clone.png'
+import DragNDropGif from './assets/todo.gif'
+import AppleCloneGif from './assets/apple.gif'
+import PerspectiveNewsGif from './assets/news.gif'
+import RockPaperScissorsGif from './assets/rockgif.gif'
 import LiveIcon from './assets/monitor.svg'
 import GithubIcon from './assets/github.svg'
 
@@ -12,7 +14,7 @@ const projects = [
             'A MERN-stack CRUD App helping you keep track of your tasks and priorities. Integrated with RESTful API design',
         description:
             "A responsive MERN-stack app integrating CRUD functionality. The Node.js server is built with RESTful architecture whereby tasks and priorities are saved on MongoDB. The Front End is styled with styled components and built with React. This project is designed to keep track of tasks and priorities and offers 'Light' and 'Dark' themed UIs. Styles created according to specifications detailed in the style guide of a frontendmentor.io challenge.",
-        img: DragNDropImg,
+        gif: DragNDropGif,
         technology: ['React', 'MongoDB', 'Express.js', 'Node.js'],
         deployed: ['Github Pages', 'Heroku'],
         styling: 'Styled Components',
@@ -44,7 +46,7 @@ const projects = [
             'A clone of apple.com homepage with live links, built with React',
         description:
             "A responsive clone of the apple.com homepage (November 2020 version). Built with React, this Front End app contains live links for all apple products. Whilst building the clone, I'd spotted logo animations in the Shop section of apple's homepage fired on load. To rectify this, an intersection observer was created to ensure animations fire only when component is in viewport.",
-        img: AppleCloneImg,
+        gif: AppleCloneGif,
         technology: ['React'],
         deployed: ['Github Pages'],
         styling: 'CSS',
@@ -68,7 +70,7 @@ const projects = [
             'A Full-stack app implementing RESTful services. The customisable search function helps you find all the News and Articles to suit your needs. Powered by Mediastack API ',
         description:
             'A responsive Full-stack app integrating RESTful architecture on the Node.js server, and a Front End styled with SCSS and built with React. The app serves up the top 50 News and Articles across 7,500 sources and 50 countries. A customisable search function enables clients to find all the News and Articles relevant to their search parameters. This project utilises the Mediastack API.',
-        img: DragNDropImg,
+        gif: PerspectiveNewsGif,
         technology: ['React', 'Express.js', 'Node.js', 'REST API'],
         deployed: ['Github Pages', 'Heroku'],
         styling: 'SCSS',
@@ -100,7 +102,7 @@ const projects = [
             "A Front End app to play endless rounds of Rock, Paper, Scissors. Built with vanillaJS, the live score display helps you keep tabs on who's winning",
         description:
             "A responsive app for endless rounds of Rock, Paper, Scissors. A live score display helps you to keep tabs on who's winning. The project was built to specifications detailed in the style guide of a frontendmentor.io challenge.",
-        img: DragNDropImg,
+        gif: RockPaperScissorsGif,
         technology: ['Vanilla JavaScript'],
         deployed: ['Github Pages'],
         styling: 'CSS',

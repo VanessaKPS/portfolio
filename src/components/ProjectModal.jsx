@@ -3,7 +3,7 @@ import React from 'react'
 const ProjectModal = (props) => {
     const {
         title,
-        image,
+        gif,
         description,
         tech,
         styling,
@@ -23,12 +23,19 @@ const ProjectModal = (props) => {
     }
     return (
         <div className='modal-wrapper'>
-            <div className='giphy-wrapper'>
+            <div className='illustration-wrapper'>
                 <div className='close-modal-wrapper' onClick={handleClick}>
                     abcdefg
                     {/* <img className='close-modal' src='' alt='' /> */}
                 </div>
-                <img className='modal-img' src='{image}' alt={image}></img>
+                <h1 className='modal-title'>{title}</h1>
+                <div className='gif-wrapper'>
+                    <img
+                        className='modal-gif'
+                        src={gif}
+                        alt='project-gif'
+                    ></img>
+                </div>
                 <div className='modal-icons-container'>
                     {icons.map((icon, i) => (
                         <a href='/' className='modal-icon-wrapper' key={i}>
@@ -42,7 +49,7 @@ const ProjectModal = (props) => {
                 </div>
             </div>
             <div className='information-wrapper'>
-                <h1 className='modal-title'>{title}</h1>
+            <h3 className='section-title'>Description</h3>
                 <p className='modal-description'>{description}</p>
                 <div className='features-wrapper'>
                     <h3 className='section-title'>Features</h3>

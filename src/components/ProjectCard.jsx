@@ -1,25 +1,38 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 const ProjectCard = (props) => {
-    const { title, image, strapLine, id, selectProject, selector } = props
+    const { title, gif, strapLine, id, selectProject, selector } = props
+    const cardRef = useRef()
+    const [hoverStyle, setHoverStyle] = useState('')
 
     const handleClick = () => {
         console.log("i've been clicked")
         selectProject(id)
     }
+    useEffect(() => {
+        cardRef.current.addEventListener('mouseenter', () => {
+            setHoverStyle('show-gif')
+        })
+        cardRef.current.addEventListener('mouseleave', () => {
+            setHoverStyle('')
+        })
+    })
     return (
         <div
-            className={`project-wrapper ${selector}`}
+            onClick={handleClick}
+            className={`project-wrapper ${selector} `}
             key={id}
-            // style={{ backgroundImage: `url(${image})` }}
+            ref={cardRef}
         >
+            <img
+                src={gif}
+                className={`background-img ${hoverStyle}`}
+                alt='project-gif'
+            />
             <h2 className='project-title'>{title}</h2>
             <p className='project-description'>{strapLine}</p>
-            <img className='project-img' src={image} alt={image}></img>
 
-            <div className='project-cta' onClick={handleClick}>
-                Show more
-            </div>
+            <div className='project-cta'>Show more</div>
         </div>
     )
 }

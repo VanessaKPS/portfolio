@@ -39,13 +39,14 @@ const ProjectsSection = () => {
                                 selectProject={saveId}
                                 features={project.features}
                                 strapLine={project.strapLine}
+                                gif={project.gif}
                             />
                         )
                     })
                 ) : (
                     <ProjectModal
                         title={modal[0].name}
-                        image={modal[0].img}
+                        // image={modal[0].img}
                         description={modal[0].description}
                         tech={modal[0].technology}
                         styling={modal[0].styling}
@@ -54,6 +55,7 @@ const ProjectsSection = () => {
                         selectCloseModal={requestCloseModal}
                         features={modal[0].features}
                         libraries={modal[0].libraries}
+                        gif={modal[0].gif}
                     />
                 )}
             </div>
