@@ -31,13 +31,11 @@ const ProjectsSection = () => {
                                 key={index + project.name}
                                 id={project.id}
                                 title={project.name}
-                                // image={project.img}
+                                image={project.img}
                                 description={project.description}
-                                tech={project.technology}
-                                styling={project.styling}
-                                icons={project.icons}
+                                // styling={project.styling}
                                 selectProject={saveId}
-                                features={project.features}
+                                // features={project.features}
                                 strapLine={project.strapLine}
                                 gif={project.gif}
                             />
@@ -46,16 +44,20 @@ const ProjectsSection = () => {
                 ) : (
                     <ProjectModal
                         title={modal[0].name}
-                        // image={modal[0].img}
+                        image={modal[0].img}
                         description={modal[0].description}
                         tech={modal[0].technology}
                         styling={modal[0].styling}
-                        icons={modal[0].icons}
                         deployed={modal[0].deployed}
                         selectCloseModal={requestCloseModal}
                         features={modal[0].features}
                         libraries={modal[0].libraries}
                         gif={modal[0].gif}
+                        info={modal[0].info}
+                        disclaimer={modal[0].disclaimer}
+                        selector={modal[0].class}
+                        liveDemo={modal[0].liveDemo}
+                        codeLink={modal[0].codeLink}
                     />
                 )}
             </div>
