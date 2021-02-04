@@ -96,7 +96,7 @@ const projects = [
         strapLine:
             'A Full-stack app implementing RESTful services. The customisable search function helps you find all the News and Articles to suit your needs. Powered by Mediastack API ',
         description:
-            'A responsive Full-stack app integrating RESTful architecture on the Node.js server, and a Front End styled with SCSS and built with React. The app serves up the top 50 News and Articles across 7,500 sources and 50 countries. A customisable search function enables clients to find all the News and Articles relevant to their search parameters. This project utilises the Mediastack API.',
+            'A responsive Full-stack app integrating RESTful architecture on the Node.js serve. The Front End is styled with SCSS and built with React. The app serves up the top 50 News and Articles across 7,500 sources and 50 countries. A customisable search function enables clients to find all the News and Articles relevant to their search parameters. This project utilises the Mediastack API.',
         gif: PerspectiveNewsGif,
         img: PerspectiveNewsImg,
         technology: ['React', 'Express.js', 'Node.js', 'REST API'],

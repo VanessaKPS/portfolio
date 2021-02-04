@@ -5,8 +5,9 @@ const ProjectCard = (props) => {
     const cardRef = useRef()
     const [hoverStyle, setHoverStyle] = useState('')
 
-    const handleClick = () => {
+    const handleClick = (e) => {
         console.log("i've been clicked")
+        e.preventDefault()
         selectProject(id)
     }
     useEffect(() => {
@@ -23,6 +24,7 @@ const ProjectCard = (props) => {
             className={`project-wrapper ${selector} `}
             key={id}
             ref={cardRef}
+            id={selector}
         >
             <div
                 className='banner-image'

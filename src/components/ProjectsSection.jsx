@@ -1,27 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import ProjectCard from './ProjectCard'
 import projects from '../projects'
 import ProjectModal from './ProjectModal'
 
 const ProjectsSection = () => {
     const [selectModalById, setSelectModalById] = useState('')
+    const [chosenId, setChosenId] = useState()
     const [titleStyle, setTitleStyle] = useState('')
     const [closeModal, setCloseModal] = useState(true)
+    const sectionRef = useRef()
 
     const saveId = (id) => {
+        setChosenId(id)
         setSelectModalById(id)
         setCloseModal((prevValue) => !prevValue)
         setTitleStyle('conceal')
     }
 
     const requestCloseModal = () => {
+        setChosenId()
         setCloseModal((prevValue) => !prevValue)
         setTitleStyle('')
     }
 
+    useEffect(() => {
+        if (chosenId === 102 || chosenId === 103) {
+            sectionRef.current.scrollIntoView()
+        }
+    }, [chosenId])
+
     const modal = projects.filter((project) => project.id === selectModalById)
     return (
-        <section id='projects'>
+        <section id='projects' ref={sectionRef}>
             <div className='projects-container'>
                 {closeModal ? (
                     projects.map((project, index) => {

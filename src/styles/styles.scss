@@ -23,8 +23,13 @@
     height: 100vh;
 }
 
+#projects-wrapper {
+    position: relative;
+}
+
 #profile-wrapper {
     min-height: 100vh;
+    position: relative;
 }
 
 #contact {

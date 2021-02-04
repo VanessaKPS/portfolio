@@ -16,9 +16,19 @@
         .about-title {
             opacity: 0;
         }
+        @media (max-width: 1024px) {
+            width: 60%;
+            height: 50%;
+        }
+        @media (max-width: 414px) {
+            width: 80%;
+        }
 
         .animate-about-title {
             font-size: $title-font-size;
+            @media (max-width: 414px) {
+                font-size: $mobile-title-font-size;
+            }
 
             span {
                 @include gradientText;
@@ -63,18 +73,16 @@
         .about-text {
             width: 80%;
             height: 50%;
+            @media (max-width: 414px) {
+                font-size: $mobile-font-size;
+            }
         }
     }
 
-    .social-icons-wrapper {
-        width: 30%;
-        height: 10%;
-        @include flexContainer(row);
-        justify-content: space-around;
-    }
-
     .cloud-wrapper {
+        position: absolute;
         opacity: 0;
+        top: 0;
     }
     .animate-cloud-wrapper {
         width: 100%;

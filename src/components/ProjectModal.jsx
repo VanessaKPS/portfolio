@@ -27,8 +27,9 @@ const ProjectModal = (props) => {
     console.log(frontEndLib)
     const backEndLib = libraries[1].backend
 
-    const handleClick = () => {
-        selectCloseModal()
+    const handleClick = (e) => {
+        e.preventDefault()
+        selectCloseModal(e)
     }
 
     useEffect(() => {

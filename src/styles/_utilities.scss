@@ -9,6 +9,9 @@
     background: $black;
     // background-image: linear-gradient(135deg, #fc4a02, #fffd03, #1bb146);
     border: $white 2px solid;
+    @media (max-width: 1024px) {
+        display: none;
+    }
 }
 
 .social-icons {
