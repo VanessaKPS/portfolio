@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { ReactComponent as MenuIcon } from '../assets/burger.svg'
+import { ReactComponent as CloseIcon } from '../assets/cancel.svg'
 
 const NavBar = (props) => {
     const { selectNav } = props
@@ -7,7 +9,18 @@ const NavBar = (props) => {
         navProjectsLink: '',
         navAboutLink: '',
     })
+    const [isClicked, setIsClicked] = useState({ menu: false, close: false })
 
+    const handleMenuClick = () => {
+        console.log('burger clicked')
+        setIsClicked((prevValue) => ({ ...prevValue, menu: !prevValue.menu }))
+    }
+    const handleCloseClick = () => {
+        setIsClicked((prevValue) => ({
+            menu: !prevValue.menu,
+            close: !prevValue.close,
+        }))
+    }
     const handleHover = () => {
         document.getElementById('logo').addEventListener('mouseover', () => {
             setHoverStyles((prevValue) => ({
@@ -70,7 +83,17 @@ const NavBar = (props) => {
                 <div className='logo'>V</div>
             </a>
 
-            <div className='nav-links-wrapper'>
+            <div className='burger-menu-wrapper' onClick={handleMenuClick}>
+                <MenuIcon className={isClicked.menu ? 'hide' : 'burger-menu'} />
+            </div>
+            <div
+                className={
+                    isClicked.menu
+                        ? 'navbar-links-wrapper-mobile'
+                        : 'nav-links-wrapper'
+                }
+            >
+                <CloseIcon onClick={handleCloseClick} className='close-menu' />
                 <button
                     id='projects-nav'
                     className={`nav-link ${hoverStyles.navProjectsLink}`}

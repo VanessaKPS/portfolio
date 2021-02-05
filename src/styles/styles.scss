@@ -43,5 +43,8 @@
         width: 30%;
         @include flexContainer(row);
         justify-content: space-between;
+        @media (max-width: 768px) {
+            width: 45%;
+        }
     }
 }

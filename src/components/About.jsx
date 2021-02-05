@@ -35,15 +35,42 @@ const About = (props) => {
                     <span>t</span> <span>m</span>
                     <span>e</span>
                 </h1>
-                <p className='about-text'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                    impedit sed repudiandae libero consequuntur laborum vel vero
-                    numquam! Totam cumque illum voluptatum quia ducimus
-                    perferendis facilis quis accusamus rem molestiae natus ab,
-                    ratione molestias harum reiciendis placeat necessitatibus.
-                    Aperiam at culpa dolores ipsam saepe voluptatem laboriosam
-                    natus ratione! Ipsam, ad.
-                </p>
+                <div className='about-text-wrapper'>
+                    <p className='about-text'>
+                        I am a Full-stack web developer specialising in Front
+                        End development. <br></br>I have created applications
+                        with technologies including;
+                    </p>
+                    <div className='about-technologies'>
+                        <div className='frontend-wrapper'>
+                            <h3 className='section-title'>Front End</h3>
+                            <ul>
+                                <li>React</li>
+                                <li>jQuery</li>
+                                <li>Bootstrap</li>
+                                <li>RESTful APIs</li>
+                                <li>SCSS</li>
+                            </ul>
+                        </div>
+                        <div className='backend-wrapper'>
+                            <h3 className='section-title'>Back End</h3>
+                            <ul>
+                                <li>Node.js</li>
+                                <li>Express.js</li>
+                                <li>MongoDB</li>
+                                <li>EJS</li>
+                                <li>RESTful APIs</li>
+                                <li> Git/GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p className='about-text'>
+                        My love for all things visual stems from a long history
+                        in the arts as a performer and facilitator.
+                        Additionally, I hold a MSc (Distinction) in the
+                        psychology of Neuroaesthetics, Goldsmiths, UoL.
+                    </p>
+                </div>
             </div>
             <div className={animationClass.clouds}>
                 <div className='group1'>

@@ -1,43 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    font-family: 'Rajdhani', sans-serif;
-    max-width: 100vw;
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-    cursor: none;
-    @media (max-width: 1024px) {
-        cursor: default;
-    }
-}
-
-a {
-    text-decoration: none;
-    color: black;
-    cursor: none;
-}
-button {
-    background: none;
-    border: none;
-    outline: none;
-}
-
-.hide {
-    display: none;
-}
-
-.social-icons {
-    &:hover {
-        transform: scale(1.1);
-    }
-}
-
 //variables
 $white: #fff;
 $black: #000;
@@ -83,4 +44,63 @@ $font-weights: (
     background-clip: text;
     color: transparent;
 }
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    max-width: 100vw;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    cursor: none;
+    @media (max-width: 1024px) {
+        cursor: default;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    cursor: none;
+    @media (max-width: 1024px) {
+        cursor: default;
+    }
+}
+button {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.hide {
+    display: none;
+}
+
+.social-icons {
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+li {
+    list-style: none;
+    position: relative;
+    padding: 0 0 0 20px;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 6px;
+        height: 5px;
+        width: 5px;
+        border: 1px solid $orange;
+        border-width: 2px 2px 0 0;
+        transform: rotate(45deg);
+    }
+}
+
 //function
