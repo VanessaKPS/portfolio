@@ -49,6 +49,9 @@
 }
 
 @media (max-width: $tablet) {
+    #app {
+        max-height: calc((var(--app-height) * 4));
+    }
     #contact {
         height: calc((var(--app-height) * 0.15));
         .contact-wrapper {

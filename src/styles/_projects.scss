@@ -363,7 +363,7 @@
         }
         .modal-wrapper {
             @include flexContainer(column);
-            height: calc((var(--app-height) * 1.85));
+            height: calc((var(--app-height) * 1.8));
             justify-content: space-between;
             .illustration-wrapper {
                 width: 100%;

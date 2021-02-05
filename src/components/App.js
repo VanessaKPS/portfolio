@@ -12,6 +12,7 @@ import ScrollSnap from 'scroll-snap'
 
 const App = () => {
     const [isMouseOver, setIsMouseOver] = useState(true)
+    const [browserHeight, setBrowserHeight] = useState()
     const appRef = useRef()
     const homeRef = useRef()
     const projectsRef = useRef()
@@ -23,10 +24,10 @@ const App = () => {
     const mouseEnter = (e) => {
         setIsMouseOver(true)
     }
-    const bindScrollSnap = () => {
+    const bindScrollSnap = (value) => {
         const element = appRef.current
         const snapElement = new ScrollSnap(element, {
-            snapDestinationY: window.innerHeight,
+            snapDestinationY: value,
             duration: 300,
             threshold: 0.1,
             timeout: 100,
@@ -37,14 +38,15 @@ const App = () => {
     const appHeight = () => {
         const doc = document.documentElement
         doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+        bindScrollSnap(window.innerHeight)
     }
 
     useEffect(() => {
         appHeight()
-        window.addEventListener('resize', appHeight)
-
-        bindScrollSnap()
-
+        window.addEventListener('resize', () => {
+            setBrowserHeight(window.innerHeight)
+            appHeight()
+        })
         const homeWrapper = homeRef.current
         homeWrapper.addEventListener('mouseleave', mouseLeave)
 
@@ -69,7 +71,12 @@ const App = () => {
         }
     }
     return (
-        <div id='app' className='app-wrapper' ref={appRef}>
+        <div
+            id='app'
+            className='app-wrapper'
+            style={{ height: `${browserHeight}px` }}
+            ref={appRef}
+        >
             <div id='home-wrapper' ref={homeRef}>
                 <NavBar selectNav={handleClick} />
                 <LandingSection status={isMouseOver} selectNav={handleClick} />

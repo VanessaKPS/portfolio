@@ -84,6 +84,7 @@
 
 @media (max-width: $tablet) {
     #nav-bar-wrapper {
+        height: calc((var(--app-height) * 0.1));
         .nav-links-wrapper {
             display: none;
         }
