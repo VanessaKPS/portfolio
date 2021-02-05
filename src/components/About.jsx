@@ -67,7 +67,7 @@ const About = (props) => {
                     <p className='about-text'>
                         My love for all things visual stems from a long history
                         in the arts as a performer and facilitator.
-                        Additionally, I hold a MSc (Distinction) in the
+                        Additionally, I hold an MSc (Distinction) in the
                         psychology of Neuroaesthetics, Goldsmiths, UoL.
                     </p>
                 </div>
