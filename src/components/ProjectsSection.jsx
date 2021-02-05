@@ -74,7 +74,9 @@ const ProjectsSection = () => {
                 )}
             </div>
             <div className={`projects-title-wrapper ${titleStyle}`}>
-                <h1 className='projects-title'>Projects</h1>
+                <h1 className='projects-title'>
+                    <span>Projects</span>
+                </h1>
             </div>
         </section>
     )

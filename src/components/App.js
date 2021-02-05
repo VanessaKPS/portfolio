@@ -26,16 +26,27 @@ const App = () => {
     const bindScrollSnap = () => {
         const element = appRef.current
         const snapElement = new ScrollSnap(element, {
-            snapDestinationY: '100%',
-            duration: 400,
+            snapDestinationY: window.innerHeight,
+            duration: 300,
             threshold: 0.1,
+            timeout: 100,
         })
+        console.log(snapElement)
 
         snapElement.bind()
     }
+    const appHeight = () => {
+        const doc = document.documentElement
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+        console.log(window.innerHeight)
+    }
 
     useEffect(() => {
+        appHeight()
+        window.addEventListener('resize', appHeight)
+
         bindScrollSnap()
+
         const homeWrapper = homeRef.current
         homeWrapper.addEventListener('mouseleave', mouseLeave)
 
@@ -49,9 +60,13 @@ const App = () => {
 
     const handleClick = (name) => {
         console.log(name)
+        if (name === 'logo') {
+            homeRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
         if (name === 'projects-nav' || name === 'cta') {
             projectsRef.current.scrollIntoView({ behavior: 'smooth' })
         }
+
         if (name === 'about-nav') {
             aboutRef.current.scrollIntoView({ behavior: 'smooth' })
         }

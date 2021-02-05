@@ -70,18 +70,19 @@ const NavBar = (props) => {
     }, [])
 
     const handleClick = (e) => {
+        console.log('logo clicked')
         selectNav(e.target.id)
     }
 
     return (
         <nav id='nav-bar-wrapper'>
-            <a
-                href='/'
+            <div
+                onClick={handleClick}
                 id='logo'
                 className={`logo-link-wrapper ${hoverStyles.logo}`}
             >
                 <div className='logo'>V</div>
-            </a>
+            </div>
 
             <div className='burger-menu-wrapper' onClick={handleMenuClick}>
                 <MenuIcon className={isClicked.menu ? 'hide' : 'burger-menu'} />

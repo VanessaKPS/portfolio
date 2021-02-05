@@ -29,6 +29,11 @@ $font-weights: (
     'semi-bold': 600,
     'bold': 700,
 );
+//breakpoints
+$small-mobile: 320px;
+$mobile: 414px;
+$tablet: 768px;
+$small-laptop: 1024px;
 
 //mixin
 @mixin flexContainer($direction) {
@@ -44,31 +49,30 @@ $font-weights: (
     background-clip: text;
     color: transparent;
 }
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+:root {
+    --app-height: 100%;
 }
 
 body {
     font-family: 'Rajdhani', sans-serif;
     max-width: 100vw;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    height: var(--app-height);
     overflow-x: hidden;
     cursor: none;
-    @media (max-width: 1024px) {
-        cursor: default;
-    }
 }
 
 a {
     text-decoration: none;
     color: black;
     cursor: none;
-    @media (max-width: 1024px) {
-        cursor: default;
-    }
 }
 button {
     background: none;
@@ -100,6 +104,13 @@ li {
         border: 1px solid $orange;
         border-width: 2px 2px 0 0;
         transform: rotate(45deg);
+    }
+}
+
+@media (max-width: $small-laptop) {
+    body,
+    a {
+        cursor: default;
     }
 }
 

@@ -33,14 +33,15 @@ const LandingSection = (props) => {
 
                 <p className='header-text'>web developer</p>
             </div>
-            <button
+
+            <div
                 id='cta'
                 onClick={handleClick}
                 className={`cta ${hoverStyle}`}
                 ref={ctaRef}
             >
-                <p>projects</p>
-            </button>
+                projects
+            </div>
         </header>
     )
 }

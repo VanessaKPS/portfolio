@@ -9,12 +9,14 @@
     background: $black;
 
     border: $white 2px solid;
-    @media (max-width: 1024px) {
-        display: none;
-    }
 }
 
 .social-icons {
     width: 30px;
     height: 30px;
+}
+@media (max-width: $small-laptop) {
+    .cursor {
+        display: none;
+    }
 }
