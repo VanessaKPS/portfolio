@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.fe17caa2.chunk.css",
+    "main.js": "/portfolio/static/js/main.8a51a0e2.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.8a51a0e2.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.8fed2963.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.8fed2963.js.map",
+    "static/js/2.ff3c988d.chunk.js": "/portfolio/static/js/2.ff3c988d.chunk.js",
+    "static/js/2.ff3c988d.chunk.js.map": "/portfolio/static/js/2.ff3c988d.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "static/css/main.fe17caa2.chunk.css.map": "/portfolio/static/css/main.fe17caa2.chunk.css.map",
+    "static/js/2.ff3c988d.chunk.js.LICENSE.txt": "/portfolio/static/js/2.ff3c988d.chunk.js.LICENSE.txt",
+    "static/media/Background.c5c19d9e.jpg": "/portfolio/static/media/Background.c5c19d9e.jpg",
+    "static/media/Cloud1r.7d706721.svg": "/portfolio/static/media/Cloud1r.7d706721.svg",
+    "static/media/Cloud2s.9dee87fe.svg": "/portfolio/static/media/Cloud2s.9dee87fe.svg",
+    "static/media/apple-clone.64f2e855.png": "/portfolio/static/media/apple-clone.64f2e855.png",
+    "static/media/apple.6400a355.gif": "/portfolio/static/media/apple.6400a355.gif",
+    "static/media/burger.a831b1ec.svg": "/portfolio/static/media/burger.a831b1ec.svg",
+    "static/media/cancel.da5c4222.svg": "/portfolio/static/media/cancel.da5c4222.svg",
+    "static/media/dragndrop-todo.f2855505.png": "/portfolio/static/media/dragndrop-todo.f2855505.png",
+    "static/media/email.a602c78e.svg": "/portfolio/static/media/email.a602c78e.svg",
+    "static/media/github.5461c77a.svg": "/portfolio/static/media/github.5461c77a.svg",
+    "static/media/info.7a05f037.svg": "/portfolio/static/media/info.7a05f037.svg",
+    "static/media/linkedin.d2416748.svg": "/portfolio/static/media/linkedin.d2416748.svg",
+    "static/media/monitor.6db3cb63.svg": "/portfolio/static/media/monitor.6db3cb63.svg",
+    "static/media/news.f5c4b7ac.gif": "/portfolio/static/media/news.f5c4b7ac.gif",
+    "static/media/perspectivenews.68f8289b.png": "/portfolio/static/media/perspectivenews.68f8289b.png",
+    "static/media/rockgif.ab6ad5a5.gif": "/portfolio/static/media/rockgif.ab6ad5a5.gif",
+    "static/media/rockpaperscissors.12bbdd6d.png": "/portfolio/static/media/rockpaperscissors.12bbdd6d.png",
+    "static/media/todo.875cebee.gif": "/portfolio/static/media/todo.875cebee.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8fed2963.js",
+    "static/js/2.ff3c988d.chunk.js",
+    "static/css/main.fe17caa2.chunk.css",
+    "static/js/main.8a51a0e2.chunk.js"
+  ]
+}
