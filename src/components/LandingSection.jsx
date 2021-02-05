@@ -20,8 +20,6 @@ const LandingSection = (props) => {
     }, [])
 
     const handleClick = (e) => {
-        console.log('cliucked')
-        console.log(e.target)
         selectNav(e.target.id)
     }
 

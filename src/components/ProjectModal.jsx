@@ -24,7 +24,7 @@ const ProjectModal = (props) => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     const frontEndLib = libraries[0].frontend
-    console.log(frontEndLib)
+
     const backEndLib = libraries[1].backend
 
     const handleClick = () => {

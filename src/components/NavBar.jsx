@@ -12,7 +12,6 @@ const NavBar = (props) => {
     const [isClicked, setIsClicked] = useState({ menu: false, close: false })
 
     const handleMenuClick = () => {
-        console.log('burger clicked')
         setIsClicked((prevValue) => ({ ...prevValue, menu: !prevValue.menu }))
     }
     const handleCloseClick = () => {
@@ -70,7 +69,6 @@ const NavBar = (props) => {
     }, [])
 
     const handleClick = (e) => {
-        console.log('logo clicked')
         selectNav(e.target.id)
     }
 

@@ -6,7 +6,6 @@ const ProjectCard = (props) => {
     const [hoverStyle, setHoverStyle] = useState('')
 
     const handleClick = (e) => {
-        console.log("i've been clicked")
         e.preventDefault()
         selectProject(id)
     }

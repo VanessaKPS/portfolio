@@ -31,14 +31,12 @@ const App = () => {
             threshold: 0.1,
             timeout: 100,
         })
-        console.log(snapElement)
 
         snapElement.bind()
     }
     const appHeight = () => {
         const doc = document.documentElement
         doc.style.setProperty('--app-height', `${window.innerHeight}px`)
-        console.log(window.innerHeight)
     }
 
     useEffect(() => {
@@ -59,7 +57,6 @@ const App = () => {
     }, [])
 
     const handleClick = (name) => {
-        console.log(name)
         if (name === 'logo') {
             homeRef.current.scrollIntoView({ behavior: 'smooth' })
         }
