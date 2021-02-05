@@ -252,7 +252,7 @@
 
         @media (max-width: 768px) {
             @include flexContainer(column);
-
+            position: relative;
             height: 190vh;
             justify-content: space-between;
         }

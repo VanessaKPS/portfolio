@@ -17,17 +17,20 @@ const ProjectsSection = () => {
         setTitleStyle('conceal')
     }
 
-    const requestCloseModal = () => {
-        setChosenId()
+    const requestCloseModal = (id) => {
+        setChosenId(id)
         setCloseModal((prevValue) => !prevValue)
         setTitleStyle('')
     }
 
     useEffect(() => {
-        if (chosenId === 102 || chosenId === 103) {
+        if ((chosenId === 102 || chosenId === 103) && closeModal) {
+            sectionRef.current.scrollIntoView({ block: 'end' })
+        }
+        if ((chosenId === 102 || chosenId === 103) && !closeModal) {
             sectionRef.current.scrollIntoView()
         }
-    }, [chosenId])
+    }, [chosenId, closeModal])
 
     const modal = projects.filter((project) => project.id === selectModalById)
     return (
@@ -43,9 +46,7 @@ const ProjectsSection = () => {
                                 title={project.name}
                                 image={project.img}
                                 description={project.description}
-                                // styling={project.styling}
                                 selectProject={saveId}
-                                // features={project.features}
                                 strapLine={project.strapLine}
                                 gif={project.gif}
                             />
@@ -68,6 +69,7 @@ const ProjectsSection = () => {
                         selector={modal[0].class}
                         liveDemo={modal[0].liveDemo}
                         codeLink={modal[0].codeLink}
+                        id={modal[0].id}
                     />
                 )}
             </div>

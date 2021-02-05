@@ -9,7 +9,7 @@ const ProjectModal = (props) => {
         description,
         tech,
         styling,
-
+        id,
         deployed,
         selectCloseModal,
         features,
@@ -27,9 +27,8 @@ const ProjectModal = (props) => {
     console.log(frontEndLib)
     const backEndLib = libraries[1].backend
 
-    const handleClick = (e) => {
-        e.preventDefault()
-        selectCloseModal(e)
+    const handleClick = () => {
+        selectCloseModal(id)
     }
 
     useEffect(() => {
