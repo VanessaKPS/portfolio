@@ -15,10 +15,10 @@
         background: no-repeat fixed;
         object-fit: cover;
         background-size: cover;
-        transition: transform 0.3s ease;
+
         // transition: width 0.3s ease, height 0.3s ease, top 0.3s ease,
         //     left 0.3s ease;
-        // transition: all 0.3s ease;
+        transition: all 0.3s ease;
     }
     .profile-wrapper,
     .cta {
