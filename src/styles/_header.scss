@@ -15,16 +15,15 @@
         background: no-repeat fixed;
         object-fit: cover;
         background-size: cover;
-
-        // transition: width 0.3s ease, height 0.3s ease, top 0.3s ease,
-        //     left 0.3s ease;
         transition: all 0.3s ease;
     }
+
     .profile-wrapper,
     .cta {
         margin-left: 5%;
         z-index: 100;
     }
+
     .header-title {
         position: relative;
         z-index: 100;
@@ -46,7 +45,6 @@
         position: relative;
         z-index: 100;
         margin-top: 2rem;
-
         padding: 0 0.5rem;
         border: 0.5px solid;
         border-radius: 4px;
@@ -54,7 +52,6 @@
         font-size: 56px;
         font-weight: map-get($font-weights, semi-bold);
         -webkit-text-stroke: 1px $white;
-
         @include gradientText;
         transition: transform 0.3s;
     }
@@ -76,14 +73,17 @@
 @media (max-width: $tablet) {
     #header {
         height: var(--app-height);
+
         .header-title {
             font-size: $mobile-header-font-size;
             -webkit-text-stroke: 3px $white;
         }
+
         .header-text {
             font-size: $mobile-title-font-size;
             -webkit-text-stroke: 1px $white;
         }
+
         .cta {
             font-size: 40px;
         }

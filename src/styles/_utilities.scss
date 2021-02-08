@@ -7,14 +7,21 @@
     width: 15px;
     border-radius: 50%;
     background: $black;
-
     border: $white 2px solid;
 }
 
 .social-icons {
     width: 30px;
     height: 30px;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
+
+.hide {
+    display: none;
+}
+
 @media (max-width: $small-laptop) {
     .cursor {
         display: none;

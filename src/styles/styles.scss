@@ -39,8 +39,8 @@
     z-index: 99;
     position: relative;
     background-color: $orange;
-
     @include flexContainer(row);
+
     .contact-wrapper {
         width: 30%;
         @include flexContainer(row);
@@ -52,8 +52,10 @@
     #app {
         max-height: calc((var(--app-height) * 4));
     }
+
     #contact {
         height: calc((var(--app-height) * 0.15));
+
         .contact-wrapper {
             width: 45%;
         }
@@ -62,9 +64,11 @@
     #home-wrapper {
         height: var(--app-height);
     }
+
     #projects-wrapper {
         height: calc(var(--app-height) * 2);
     }
+
     #profile-wrapper {
         height: var(--app-height);
     }

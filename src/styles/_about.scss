@@ -46,6 +46,7 @@
                 &:nth-of-type(7) {
                     animation-delay: 0.3s;
                 }
+
                 @keyframes revolveScale {
                     60% {
                         transform: translate(20px, 20px) rotate(30deg)
@@ -90,11 +91,13 @@
             }
         }
     }
+
     .cloud-wrapper {
         position: absolute;
         opacity: 0;
         top: 0;
     }
+
     .animate-cloud-wrapper {
         width: 100%;
         height: 85vh;
@@ -103,9 +106,11 @@
         .cloud-2s {
             width: 14rem;
         }
+
         .cloud-1r {
             width: 10rem;
         }
+
         .group1 {
             width: 100%;
             height: 100%;
@@ -120,22 +125,26 @@
                 top: 12rem;
                 left: 18%;
             }
+
             .cloud2 {
                 position: absolute;
                 right: 5%;
                 top: 2rem;
             }
+
             .cloud3 {
                 position: absolute;
                 top: 20rem;
                 left: 55%;
             }
+
             .cloud4 {
                 position: absolute;
                 top: 25rem;
                 left: 3%;
             }
         }
+
         .group2 {
             width: 100%;
             height: 100%;
@@ -151,11 +160,13 @@
                 position: absolute;
                 right: 12%;
             }
+
             .cloud6 {
                 position: absolute;
                 top: 5rem;
                 left: 0;
             }
+
             .cloud7 {
                 position: absolute;
                 top: 23rem;
@@ -184,11 +195,14 @@
 @media (max-width: $tablet) {
     #about {
         height: calc(var(--app-height) * 0.85);
+
         .about-content-wrapper {
             width: 70%;
             height: 70%;
+
             .about-text-wrapper {
                 height: 60%;
+
                 .about-technologies {
                     height: fit-content;
                 }
@@ -200,6 +214,8 @@
 @media (max-width: $mobile) {
     #about {
         height: calc(var(--app-height) * 0.85);
+        font-size: $mobile-font-size;
+
         .about-content-wrapper {
             width: 80%;
             height: 70%;
@@ -207,15 +223,10 @@
             .animate-about-title {
                 font-size: $mobile-title-font-size;
             }
+
             .about-text-wrapper {
                 width: 100%;
                 height: 70%;
-                .about-technologies {
-                    font-size: $mobile-font-size;
-                }
-            }
-            .about-text {
-                font-size: $mobile-font-size;
             }
         }
     }
@@ -223,23 +234,18 @@
 @media (max-width: $small-mobile) {
     #about {
         height: calc(var(--app-height) * 0.85);
+
         .about-content-wrapper {
             width: 90%;
             height: 75%;
 
-            .animate-about-title {
-                font-size: $mobile-title-font-size;
-            }
             .about-text-wrapper {
                 width: 100%;
                 height: 70%;
+
                 .about-technologies {
-                    font-size: $mobile-font-size;
                     padding: 0.8rem 0;
                 }
-            }
-            .about-text {
-                font-size: $mobile-font-size;
             }
         }
     }
