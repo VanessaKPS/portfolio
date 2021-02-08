@@ -4,7 +4,6 @@ import projects from '../projects'
 import ProjectModal from './ProjectModal'
 
 const ProjectsSection = () => {
-    const [selectModalById, setSelectModalById] = useState('')
     const [chosenId, setChosenId] = useState()
     const [titleStyle, setTitleStyle] = useState('')
     const [closeModal, setCloseModal] = useState(true)
@@ -12,7 +11,6 @@ const ProjectsSection = () => {
 
     const saveId = (id) => {
         setChosenId(id)
-        setSelectModalById(id)
         setCloseModal((prevValue) => !prevValue)
         setTitleStyle('conceal')
     }
@@ -32,7 +30,7 @@ const ProjectsSection = () => {
         }
     }, [chosenId, closeModal])
 
-    const modal = projects.filter((project) => project.id === selectModalById)
+    const modal = projects.filter((project) => project.id === chosenId)
     return (
         <section id='projects' ref={sectionRef}>
             <div className='projects-container'>
@@ -45,7 +43,7 @@ const ProjectsSection = () => {
                                 id={project.id}
                                 title={project.name}
                                 image={project.img}
-                                description={project.description}
+                                // description={project.description}
                                 selectProject={saveId}
                                 strapLine={project.strapLine}
                                 gif={project.gif}

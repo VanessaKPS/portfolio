@@ -5,8 +5,7 @@ const ProjectCard = (props) => {
     const cardRef = useRef()
     const [hoverStyle, setHoverStyle] = useState('')
 
-    const handleClick = (e) => {
-        e.preventDefault()
+    const handleClick = () => {
         selectProject(id)
     }
     useEffect(() => {

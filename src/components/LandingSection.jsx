@@ -4,7 +4,7 @@ import HeaderBackground from './HeaderBackground'
 const LandingSection = (props) => {
     const { status, selectNav } = props
     const [hoverStyle, setHoverStyle] = useState('')
-    const ctaRef = useRef(null)
+    const ctaRef = useRef()
 
     const handleHover = () => {
         ctaRef.current.addEventListener('mouseover', () => {
@@ -20,7 +20,8 @@ const LandingSection = (props) => {
     }, [])
 
     const handleClick = (e) => {
-        selectNav(e.target.id)
+        const showProjectDivId = e.target.id
+        selectNav(showProjectDivId)
     }
 
     return (
