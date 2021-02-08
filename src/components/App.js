@@ -16,14 +16,16 @@ const App = () => {
     const appRef = useRef()
     const homeRef = useRef()
     const projectsRef = useRef()
-    const aboutRef = useRef('about')
+    const aboutRef = useRef()
 
     const mouseLeave = (e) => {
         setIsMouseOver(false)
     }
+
     const mouseEnter = (e) => {
         setIsMouseOver(true)
     }
+
     const bindScrollSnap = (value) => {
         const element = appRef.current
         const snapElement = new ScrollSnap(element, {
@@ -32,9 +34,9 @@ const App = () => {
             threshold: 0.1,
             timeout: 100,
         })
-
         snapElement.bind()
     }
+
     const appHeight = () => {
         const doc = document.documentElement
         doc.style.setProperty('--app-height', `${window.innerHeight}px`)

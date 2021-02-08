@@ -14,12 +14,14 @@ const NavBar = (props) => {
     const handleMenuClick = () => {
         setIsClicked((prevValue) => ({ ...prevValue, menu: !prevValue.menu }))
     }
+
     const handleCloseClick = () => {
         setIsClicked((prevValue) => ({
             menu: !prevValue.menu,
             close: !prevValue.close,
         }))
     }
+
     const handleHover = () => {
         document.getElementById('logo').addEventListener('mouseover', () => {
             setHoverStyles((prevValue) => ({
@@ -69,7 +71,8 @@ const NavBar = (props) => {
     }, [])
 
     const handleClick = (e) => {
-        selectNav(e.target.id)
+        const clickedNavigationId = e.target.id
+        selectNav(clickedNavigationId)
     }
 
     return (
